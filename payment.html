@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            margin: 5px;
+            background-color: #007bff;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Complete Your Payment</h1>
+        <p><strong>Order Total:</strong>Rs.<span id="total-amount">180</span></p>
+   
+    <form class="payment-form">
+        <label>Select Payment Method:</label>
+        <select id="payment-method" required>
+            <option value="">--Choose--</option>
+            <option value="upi">UPI</option>
+            <option value="cash">Cash on Delivery</option>
+            <option value="card">Credit/Debit Card</option>
+        </select>
+        <button type="submit">Pay now</button>
+    </form>
+<a href="index.html" class="btn">Back to home</a>
+</div>
+<script>
+ document('.payment-form').addEventListener('submit',function(e){
+e.preventDefault();
+const method = document.getElementById('payment-method').value;
+if(!method) {
+    alert("Please select a payment method.");
+    return;
+}
+alert("Payment successful via "+ method.toUpperCase() + "! Thank You for your order.");
+window.location.href ="index.html";
+ });
+</script>
+</body>
+</html>
